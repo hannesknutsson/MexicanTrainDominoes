@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Run Game" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="com.github.hannesknutsson.mtd.Game" />
+    <module name="MexicanTrainDomioes" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.github.hannesknutsson.mtd.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
