@@ -8,10 +8,13 @@ import java.util.List;
  */
 public class EngineHouse {
 
-    private List<PlayerTrack> tracks;
+    private List<Track> tracks;
 
     public EngineHouse(final int startingValue, final List<Player> players) {
         this.tracks = new ArrayList<>();
-        //tracks.add(new PlayerTrack(startingValue, ))
+        tracks.add(new MexicanTrack(startingValue));
+        for (Player player : players) {
+            this.tracks.add(new PlayerTrack(startingValue, player));
+        }
     }
 }
