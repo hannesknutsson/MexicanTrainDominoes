@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Run Game" type="Application" factoryName="Application">
-    <option name="MAIN_CLASS_NAME" value="com.github.hannesknutsson.mtd.Game" />
+    <option name="MAIN_CLASS_NAME" value="com.github.hannesknutsson.mtd.Simulation" />
     <module name="MexicanTrainDomioes" />
     <extension name="coverage">
       <pattern>
