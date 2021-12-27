@@ -35,7 +35,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        ${project.groupId}.${project.artifactId}.Simulation
+                                        ${project.groupId}.${project.artifactId}.Main
                                     </mainClass>
                                 </manifest>
                             </archive>

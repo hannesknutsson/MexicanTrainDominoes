@@ -1,5 +1,6 @@
 package com.github.hannesknutsson.mtd.mechanics;
 
+import com.github.hannesknutsson.mtd.mechanics.bricks.Domino;
 import com.github.hannesknutsson.mtd.mechanics.errors.InvalidMoveException;
 
 /**
@@ -7,13 +8,13 @@ import com.github.hannesknutsson.mtd.mechanics.errors.InvalidMoveException;
  */
 public class PlayerTrack extends MexicanTrack {
 
-    private final Player trainOwner;
+    public final Player trackOwner;
     private boolean isOpen;
 
-    protected PlayerTrack(final int startingValue, final Player trainOwner) {
+    public PlayerTrack(final int startingValue, final Player trainOwner) {
         super(startingValue);
         this.currentValue = startingValue;
-        this.trainOwner = trainOwner;
+        this.trackOwner = trainOwner;
         this.isBlocker = false;
         this.isOpen = false;
     }
@@ -22,15 +23,14 @@ public class PlayerTrack extends MexicanTrack {
         return isOpen;
     }
 
-    protected void appendDomino(final Domino toPlace, final Player playerMakingTheMove) throws InvalidMoveException {
-        if (!this.isOpen && !playerMakingTheMove.equals(trainOwner)) {
+    protected void appendDomino(final Domino toPlace, final Strategy playerMakingTheMove) throws InvalidMoveException {
+        if (!this.isOpen && !playerMakingTheMove.equals(trackOwner)) {
             throw new InvalidMoveException("This track is not open for everyone to build on at the time!");
         }
 
-        //
         super.appendDomino(toPlace, playerMakingTheMove);
 
-        if (trainOwner.equals(playerMakingTheMove)) {
+        if (trackOwner.equals(playerMakingTheMove)) {
             this.isOpen = false;
         }
     }

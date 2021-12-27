@@ -1,13 +1,11 @@
 package com.github.hannesknutsson.mtd.mechanics;
 
+import com.github.hannesknutsson.mtd.mechanics.bricks.Domino;
 import com.github.hannesknutsson.mtd.mechanics.errors.InvalidMoveException;
 
 public class MexicanTrack extends Track {
 
-    protected int currentValue;
-    protected boolean isBlocker;
-
-    protected MexicanTrack(final int startingValue) {
+    public MexicanTrack(final int startingValue) {
         this.currentValue = startingValue;
         this.isBlocker = false;
     }
@@ -16,7 +14,7 @@ public class MexicanTrack extends Track {
         return true;
     }
 
-    protected void appendDomino(final Domino toPlace, final Player playerMakingTheMove) throws InvalidMoveException {
+    protected void appendDomino(final Domino toPlace, final Strategy playerMakingTheMove) throws InvalidMoveException {
         if (!toPlace.hasValue(this.currentValue)) {
             throw new InvalidMoveException("The domino that was appended was not legal for this train at the time!");
         }

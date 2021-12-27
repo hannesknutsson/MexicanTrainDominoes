@@ -1,19 +1,33 @@
 package com.github.hannesknutsson.mtd.mechanics;
 
-import java.util.ArrayList;
-import java.util.List;
+public final class Player implements Name {
 
-/**
- * This is a class that keeps track on what bricks a player has been dealt to prevent cheating
- */
-public class Player {
+    private final Strategy strategy;
+    private final AntiCheat antiCheat;
 
-    private final Brain brain;
-    private final List<Domino> bricks;
+    private Player(final Strategy strategy, final AntiCheat antiCheat) {
+        this.strategy = strategy;
+        this.antiCheat = antiCheat;
+    }
 
-    public Player(final Brain brain, List<Domino> bricks) {
-        brain.setBricks(new ArrayList<Domino>(bricks));
-        this.brain = brain;
-        this.bricks = bricks;
+    public final int getNumberOfRemainingBricks() {
+        return antiCheat.getNumberOfRemainingBricks();
+    }
+
+    public static Player createPlayer(final Strategy strategy) {
+        return new Player(strategy, new AntiCheat(strategy));
+    }
+
+    @Override
+    public String getName() {
+        return strategy.getName();
+    }
+
+    protected final Strategy getStrategy() {
+        return strategy;
+    }
+
+    protected final AntiCheat getAntiCheat() {
+        return antiCheat;
     }
 }
